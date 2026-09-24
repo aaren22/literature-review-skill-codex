@@ -163,3 +163,25 @@ description: 学术文献综述全流程导航——从找文献、拿 PDF、精
 本套件源自 YAN 的科研写作 SOP(33 skill / 9 层),文献综述部分单独抽出来免费分享。
 
 完整 SOP(选题、研究设计、写作章节、修改、投稿、回复审稿等)是付费产品,不在本免费版内。本套件包含的 5 个子 skill 已**完全自包含**——离开完整 SOP 也能独立工作。
+
+
+## Codex 文献综述工作台
+
+这套 Skill 不是 5 个孤立流程，而是围绕项目工作台 `.literature-review/` 协同工作：
+
+    检索 → literature-matrix.md → 获取全文 → PDF 精读 → reading-notes/ → 更新 matrix → 综合 → 综述/章节
+
+共享数据契约见 `references/workbench-protocol.md`。
+
+### 状态
+
+- `discovered`：检索发现，尚未获得全文
+- `retrieved`：已有可用全文
+- `first_pass`：完成第一遍筛读
+- `second_pass`：完成方法、结果等核心分析
+- `third_pass`：完成深度批判性精读
+- `synthesized`：已进入当前综述综合
+
+### 典型任务
+
+用户说“帮我从零做一个文献综述”时，优先建立 `.literature-review/project.md`，然后依次完成检索、获取、精读和综合。用户只要求其中一个阶段时，不必重复已经完成的阶段；先检查工作台状态。
