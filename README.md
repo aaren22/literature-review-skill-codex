@@ -98,6 +98,51 @@ bash ./scripts/install-codex.sh
 
 5 个 Skill 可以单独使用，不要求每次从第一步开始。
 
+## 文献综述工作台
+
+本版本进一步把 5 个 Skill 连接成一个共享工作流。工作状态保存在当前项目的 `.literature-review/`：
+
+    .literature-review/
+    ├── project.md
+    ├── search-log.md
+    ├── literature-matrix.md
+    ├── reading-notes/
+    └── sources/
+
+核心数据流：
+
+    文献检索
+        ↓
+    Literature Matrix（discovered）
+        ↓
+    文献获取
+        ↓
+    Literature Matrix（retrieved）
+        ↓
+    PDF/全文驱动的文献精读
+        ↓
+    reading-notes/<paper-id>.md
+        ↓
+    Literature Matrix（first/second/third_pass）
+        ↓
+    文献综述写作 / 文献综述章节
+        ↓
+    Literature Matrix（synthesized）
+
+首次使用可以运行：
+
+    .\scripts\init-workbench.ps1
+
+它只创建缺失文件，不覆盖已有工作台数据。
+
+更详细的数据字段、paper_id、状态流转和更新规则见 `references/workbench-protocol.md`。
+
+## PDF 驱动的精读
+
+`literature-reading` 不再只是给出“如何阅读”的建议。对于用户提供的 PDF 或工作台中的 PDF，它要求实际读取论文文本；必要时检查页面图像；生成单篇 reading note；然后把研究问题、方法、主要发现、局限和 gap 同步到 Literature Matrix。
+
+这使后续综述写作可以直接消费已经结构化的证据，而不需要重新粘贴论文内容。
+
 ## Codex 适配内容
 
 本 fork 保留原项目的方法论、模板和参考资料，主要做了以下适配：
