@@ -25,6 +25,22 @@ description: Help obtain legally accessible full text for papers already identif
 - 不把浏览器扩展视为 Codex 自带工具；只有用户实际提供相应工具或访问方式时才执行自动化操作。
 - 不主动提供或搜索盗版全文、绕过订阅/访问控制的方案。
 
+## 工作台交接
+
+获取全文后不要只把 PDF 留在下载目录。应同步更新 `.literature-review/`：
+
+1. 根据 paper_id 将可用 PDF 保存到 `.literature-review/sources/<paper-id>.pdf`（如果用户已有其他文件位置，则记录实际路径，不强制复制）。
+2. 更新 `.literature-review/literature-matrix.md` 中的 `full_text_status` 和 `source_version`。
+3. `reading_status` 从 `discovered` 更新为 `retrieved`。
+4. 如果只找到摘要、accepted manuscript 或预印本，必须准确记录版本，不得标记为 publisher。
+5. 如果仍无法取得全文，保留获取记录，并将状态保持为 `missing`、`subscription` 或 `library` 等实际状态。
+
+字段和状态定义见 `references/workbench-protocol.md`。
+
+## 下游交接
+
+获取完成后，向 `literature-reading` 交接 paper_id、文件路径/来源 URL、版本信息和当前矩阵状态。用户说“开始精读”时，优先从工作台找到对应论文，不要求用户重新提供题名和 DOI。
+
 ## 六级获取策略（按合规优先）
 
 ### Level 1｜机构订阅
