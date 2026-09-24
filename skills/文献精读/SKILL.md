@@ -1,6 +1,6 @@
 ---
-name: 文献精读
-description: 帮用户高效阅读学术论文并建立可复用的笔记系统。根据阅读深度需求选择 Keshav 三遍法（快筛/扫读/精读），按论文类型（实证/综述/理论/方法学）采用不同读法，建立 Cornell / Zettelkasten 笔记系统。当用户说"这篇论文怎么读"、"帮我做文献笔记"、"怎么快速判断这篇值不值得深读"、"怎么建文献笔记系统"时触发。基于 Keshav 2007 三遍法、Luhmann Zettelkasten / Ahrens 2017 智能笔记、Pauk Cornell 笔记、Robinson SQ3R。
+name: literature-reading
+description: Read and analyze academic papers using Keshav's three-pass method and structured note-taking. Use when the user provides a paper or PDF, asks how to read it, wants literature notes, or needs to triage papers before deep reading.
 ---
 
 # 文献精读
@@ -20,6 +20,13 @@ description: 帮用户高效阅读学术论文并建立可复用的笔记系统�
 - 还没找到论文 → `文献检索`
 - 论文下不到 → `文献获取`
 - 读完一堆要整合 → `文献综述写作`
+
+## Codex 工作原则
+
+- 当用户提供 PDF、论文文本或可靠出版记录时，以实际文件/文本为证据基础；不要用模型记忆补写论文内容。
+- 区分“论文原文事实”“基于论文的分析”和“模型/研究者推断”。
+- 关键结论、数字、方法参数和局限应尽量记录可定位的证据（页码、章节、表/图编号或文件位置）。
+- 第一遍适合快速筛选，但相关性初筛不是最终纳入/排除决定；正式综述由研究者确认。
 
 ## 工作流
 
