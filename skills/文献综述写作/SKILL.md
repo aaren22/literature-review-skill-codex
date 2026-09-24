@@ -1,6 +1,6 @@
 ---
-name: 文献综述写作
-description: 把文献笔记组织成批判性综合的文献综述，而非堆砌式 summary。适用于学位论文综述章（博/硕）、期刊独立综述文章、论文引言中的 mini 综述、系统综述/范围综述的 discussion 部分。当用户说"帮我写文献综述"、"综述怎么写"、"我的综述被说成堆砌"、"引言里的综述部分怎么组织"时触发。基于 Cooper 1988 分类学、Boote & Beile 2005 12 条、Webster & Watson 2002 概念中心法、Torraco 2005/2016 综合矩阵、Grant & Booth 2009 综述类型学、Belcher 2019、Swales CARS、PRISMA 2020。
+name: literature-writing
+description: Synthesize academic literature into a critical literature review, integrative review, systematic-review discussion, or introduction mini-review. Use when the user has collected or read papers and needs thematic synthesis, critical comparison, gap analysis, or review drafting.
 ---
 
 # 文献综述写作
@@ -35,6 +35,13 @@ description: 把文献笔记组织成批判性综合的文献综述，而非堆�
 | 论文引言中的 mini | CARS | 1-3 页 | Swales CARS 三 Move |
 
 完整决策树 + 5 种类型的大纲 → `references/review-outline-5types.md`
+
+## Codex 工作原则
+
+- 仅把已提供、已获取并核对的文献作为事实证据；不要用模型记忆补写引用或研究结论。
+- 每个重要综合结论应能回溯到一个或多个具体来源；避免把单篇论文的结论泛化成领域共识。
+- AI 可以提出主题聚类、综合和 gap 候选，但这些属于分析草稿；研究者需要确认其领域合理性和研究意义。
+- 优先保留“证据 → 比较 → 解释 → 局限 → gap”的论证链。
 
 ## 工作流（默认：学位论文 Narrative）
 
@@ -105,7 +112,7 @@ description: 把文献笔记组织成批判性综合的文献综述，而非堆�
 
 **建议：** 中文学位论文综述章用"主题大框架 + 时间子内容"混合组织，比纯时间序好。
 
-## AI 边界
+## Codex / AI 边界
 
 **AI 可做：**
 - 概念提取、矩阵填充、批判综合初稿、语言润色
