@@ -1,6 +1,6 @@
 ---
-name: 文献检索
-description: 帮用户构建系统的中英文文献检索策略。根据综述类型（叙事/系统/范围/快速）选择 PICO/SPIDER 框架，在 Web of Science / Scopus / Google Scholar / CNKI / 万方 等数据库执行检索，产出可复现的检索日志。当用户说"帮我搜文献"、"怎么找相关论文"、"关键词搜不到合适的"、"我要做系统综述的检索"时触发。基于 PRISMA 2020 + PRISMA-S 2021 报告标准、Gusenbauer & Haddaway 2020 数据库对比实证、Richardson 1995 PICO、Cooke 2012 SPIDER。
+name: literature-search
+description: Build reproducible Chinese and English academic literature search strategies. Use when the user needs search terms, database-specific queries, systematic-review retrieval, citation chaining, or a documented search log. This skill designs and, when supported by available web/MCP access, helps execute searches; it does not assume access to subscription databases.
 ---
 
 # 文献检索
@@ -19,6 +19,13 @@ description: 帮用户构建系统的中英文文献检索策略。根据综述�
 - 论文下载不到 → `文献获取`
 - 搜出来了不知怎么读 → `文献精读`
 - 文献堆读完了要整合 → `文献综述写作`
+
+## Codex 工作原则
+
+- 区分“设计检索”和“执行检索”。本 Skill 可以设计数据库检索式、比较数据库、生成检索日志，并在当前 Codex 会话具备相应网页或 MCP 访问能力时执行检索。
+- 不要假定有数据库订阅。Web of Science、Scopus、CNKI、万方、IEEE Xplore、ACM DL、Embase 等可能需要账号、机构订阅或专用访问权限；没有实际访问能力时，只生成可复制执行的检索式，并明确说明限制。
+- 搜索结果不是证据本身。候选记录只能用于发现文献；要把论文作为综述证据，必须取得并核对论文全文或可靠的正式出版记录。
+- 优先保存可复现信息：日期、数据库/来源、完整检索式、过滤条件、命中数（若实际可见）和导出结果位置。
 
 ## 工作流
 
@@ -57,7 +64,7 @@ Boolean + MeSH 详解 → `references/boolean-search.md`
 
 ### Step 4｜选数据库
 
-**最少 4 个英文库 + 2 个中文库（系统综述）**
+**系统综述应根据研究领域和协议预先确定数据库覆盖范围，而不是机械规定固定数量。** 原则上覆盖主要综合数据库、学科数据库和必要的中文数据库；如果研究协议规定了具体数据库，应以协议为准。
 
 | 学科 | 英文必检 | 中文必检 |
 |------|---------|---------|
@@ -123,10 +130,11 @@ PRISMA-S 27 项 checklist → `references/prisma-s.md`
 5. **中英分离** — 中文学位论文只搜中文库 = 没看到国际进展
 6. **一次性搜完不迭代** — 搜到几篇关键文献后应该再扩关键词二次搜
 
-## AI 边界
+## Codex / AI 边界
 
 - **能做：** 生成同义词表、翻译中英术语、检查搜索字符串语法、导出格式转换
-- **不能做：** 代访问订阅库（无订阅 AI 也进不去）、判断某库是否值得订阅、评估一篇论文质量
+- **不能假定：** 已登录或有权访问任何订阅数据库；不能把无法实际验证的命中数、筛选数或数据库结果写成事实。
+- **可以辅助：** 判断候选数据库是否与研究问题匹配、比较覆盖范围，并根据用户实际可访问的数据库调整策略；最终纳入/排除和质量判断由研究者确认。
 
 ## 何时读 references/
 
