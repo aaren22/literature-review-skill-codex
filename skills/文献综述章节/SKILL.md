@@ -17,6 +17,22 @@ description: Draft or restructure the literature-review chapter or Related Work 
 
 ---
 
+## 工作台输入
+
+开始写章节前，优先读取：
+
+1. `.literature-review/project.md`：研究问题、范围和章节目标。
+2. `.literature-review/literature-matrix.md`：所有已核对文献的结构化证据。
+3. `.literature-review/reading-notes/`：核心论文的详细证据和批判性分析。
+
+如果矩阵中某论文只有 `discovered` 或 `retrieved` 状态，不得据此编造其方法、结果或局限；先补充精读，或明确只使用已核实的摘要信息。
+
+## 工作台输出
+
+章节写作前先从矩阵形成主题—论文映射，再生成章节结构。章节草稿中的关键判断应能回溯到 matrix 的论文和 reading note；不要把无法追溯的领域共识写成事实。
+
+完成章节后，可在 `project.md` 的 Planned next step 中记录下一步（例如“检查 gap 与 RQ 一致性”）。
+
 ## 何时使用
 
 - 学位论文的 Chapter 2 文献综述
