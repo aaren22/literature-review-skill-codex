@@ -1,9 +1,16 @@
 ---
-name: 文献综述章节
-description: 写论文 / 学位论文中的"文献综述章节"（区别于独立的综述型论文）。重点：synthesis 而非堆砌，承上启下建立 gap，主题组织而非作者组织。
+name: literature-review-chapter
+description: Draft or restructure the literature-review chapter or Related Work section of a thesis or research paper. Use when the user needs thematic synthesis, chapter organization, gap articulation, or a bridge from prior work to the current study.
 ---
 
 # 文献综述章节（Literature Review Chapter）
+
+## Codex 工作原则
+
+- 以用户提供或已核对的论文作为本章证据基础，不用模型记忆虚构或补全引用。
+- 每个关键判断尽量绑定具体来源；对“已有研究普遍认为”“首次”“显著优于”等强表述尤其谨慎。
+- 可以根据论文矩阵提出主题结构和 gap，但研究者负责确认研究意义、范围和最终论证。
+- 本 Skill 不依赖 Claude Code 专有工具、命令、Hook 或插件；`assets/` 与 `references/` 均为普通 Markdown 资源，可由 Codex 按需读取。
 
 > 📚 基于 Ridley (2012) *The Literature Review*、Machi & McEvoy (2022) *Six Steps to Success*、Hart (2018) *Doing a Literature Review*、Webster & Watson (2002) MIS Quarterly、Torraco (2016) *Human Resource Development Review*
 > ⚠️ 与「文献综述写作」skill（写综述型论文）不同，本 skill 专指论文中的 Lit Review **章节**。
