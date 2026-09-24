@@ -28,6 +28,39 @@ description: Read and analyze academic papers using Keshav's three-pass method a
 - 关键结论、数字、方法参数和局限应尽量记录可定位的证据（页码、章节、表/图编号或文件位置）。
 - 第一遍适合快速筛选，但相关性初筛不是最终纳入/排除决定；正式综述由研究者确认。
 
+## PDF/论文驱动的工作台流程
+
+本 Skill 的默认输入是实际论文文件、论文全文文本或可验证的正式出版记录，而不是“告诉用户怎么读”。
+
+### 1. 定位输入
+
+- 优先检查 `.literature-review/literature-matrix.md`，根据 paper_id 和 `full_text_status` 找到待读论文。
+- 若矩阵已有 `notes_path`，先读取对应精读笔记，再继续补充，不要重复创建。
+- 若用户直接提供 PDF，则先建立 paper_id，并把文件路径/来源写入矩阵。
+
+### 2. 实际读取
+
+- 先读取 PDF 的文本内容和元数据；必要时检查页面图像以确认表格、公式、图示或扫描文本。
+- 第一遍提取标题、摘要、章节结构、结论和主要贡献。
+- 第二遍提取研究问题、数据/样本、方法、理论框架、关键结果、验证方式和局限。
+- 第三遍仅在用户要求深度精读或论文是核心证据时执行，重点检查假设、方法细节、替代解释、鲁棒性和可复现性。
+- 对关键数字、结论和方法参数记录页码、章节、表/图编号等 `evidence_location`。
+
+### 3. 生成单篇精读笔记
+
+使用 `assets/reading-note-template.md`，保存到 `.literature-review/reading-notes/<paper-id>.md`。不要把长篇精读内容塞进 Literature Matrix。
+
+### 4. 同步 Literature Matrix
+
+完成单篇精读后，必须更新 `.literature-review/literature-matrix.md`：
+- `reading_status` 更新为 `first_pass`、`second_pass` 或 `third_pass`。
+- 填充 `research_question`、`context_sample`、`method`、`theory_framework`、`key_findings`、`limitations`、`gap`。
+- `notes_path` 指向单篇笔记。
+- 关键事实填入 `evidence_location`。
+- 不确定信息留空，不用模型知识补全。
+
+数据契约见 `references/workbench-protocol.md`。
+
 ## 工作流
 
 ### Step 1｜判断该读多深（Keshav 三遍法）
@@ -118,7 +151,7 @@ Keshav 2007 详解 → `references/three-pass.md`
 - **建立笔记网络**（Zettelkasten 的连接是人的判断）
 - **完全替代第三遍精读**（深度质疑需要人做）
 
-**原则：** AI 做第一遍，人做第二三遍。
+**原则：** Codex 负责实际文本/PDF驱动的初步分析和结构化记录；研究者负责最终判断。核心论文仍应由研究者核对原文。
 
 ## 何时读 references/
 
