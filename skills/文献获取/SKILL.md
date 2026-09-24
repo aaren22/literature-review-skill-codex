@@ -70,7 +70,7 @@ description: Help obtain legally accessible full text for papers already identif
 给论文作者发邮件索要。
 
 - 通讯作者的邮箱在论文首页
-- 用 `assets/author-request-email.md` 的中英模板
+- 用 `assets/email-templates.md` 的中英模板
 - 通常 1-3 天回复，回复率 50%+
 
 **这是完全合规的**。作者也希望自己的论文被读到。
