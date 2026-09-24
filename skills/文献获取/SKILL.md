@@ -1,6 +1,6 @@
 ---
-name: 文献获取
-description: 当用户无法下载已检索到的论文 PDF 时触发。按合规优先级提供六级获取策略：机构订阅 → OA 版本 → 预印本与作者版 → 作者直接请求 → 馆际互借 → 最后讨论灰色渠道。基于 Suber 2012 Open Access 理论、Piwowar 2018 OA 状况实证、Dhakal 2019 Unpaywall 评测、Himmelstein 2018 Sci-Hub eLife 学术讨论。产出获取路径决策 + 可执行工具清单 + 作者索文邮件模板。
+name: literature-acquisition
+description: Help obtain legally accessible full text for papers already identified by the user. Use when a PDF is unavailable or the user needs OA, author-copy, preprint, library-loan, or author-request options. Never assume access to private subscriptions.
 ---
 
 # 文献获取
@@ -18,6 +18,13 @@ description: 当用户无法下载已检索到的论文 PDF 时触发。按合�
 - 还没搜到候选论文 → `文献检索`
 - 下到后不知怎么读 → `文献精读`
 
+## Codex 工作原则
+
+- 优先公开、合法且可验证的全文来源：出版社 OA、机构知识库、作者主页、预印本平台、图书馆/馆际互借。
+- Codex 可以帮助检索 DOI、标题、作者和公开全文入口；如果当前会话没有可用网页/MCP 访问能力，则输出可执行的人工获取路径，不声称已经下载文件。
+- 不把浏览器扩展视为 Codex 自带工具；只有用户实际提供相应工具或访问方式时才执行自动化操作。
+- 不主动提供或搜索盗版全文、绕过订阅/访问控制的方案。
+
 ## 六级获取策略（按合规优先）
 
 ### Level 1｜机构订阅
@@ -29,7 +36,7 @@ description: 当用户无法下载已检索到的论文 PDF 时触发。按合�
 - 图书馆账号登录
 - SSO 单点登录
 
-**90% 的情况这一步就够。** 先试这个再走下面。
+先检查用户是否具有机构访问权限；不要假设用户一定有订阅。
 
 ### Level 2｜开放获取（OA）版本
 
@@ -156,10 +163,12 @@ description: 当用户无法下载已检索到的论文 PDF 时触发。按合�
 3. **伦理误区** — 研究机构对 Sci-Hub 使用有明确规定，忽略会惹麻烦
 4. **作者邮件群发** — 不要无脑群发；每封邮件应有针对性
 
-## AI 边界
+## Codex / AI 边界
 
 - **能做：** 列出获取策略、生成索文邮件模板、解析 DOI 找 OA 版本
-- **不能做：** 代替你访问订阅库（账号限制）、判断某源是否合规（因国家/机构而异）
+- **不能假定：** 已登录订阅库、拥有机构权限或已经成功下载 PDF。
+- **不能做：** 绕过付费墙、验证码、登录或访问控制。
+- **可以做：** 根据 DOI/题名寻找合法公开版本、整理获取路径、生成作者索文邮件，并在用户提供文件后继续进入文献精读流程。
 
 ## 何时读 references/
 
