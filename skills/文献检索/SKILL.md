@@ -27,6 +27,30 @@ description: Build reproducible Chinese and English academic literature search s
 - 搜索结果不是证据本身。候选记录只能用于发现文献；要把论文作为综述证据，必须取得并核对论文全文或可靠的正式出版记录。
 - 优先保存可复现信息：日期、数据库/来源、完整检索式、过滤条件、命中数（若实际可见）和导出结果位置。
 
+## 工作台输出
+
+检索不是终点。每次完成一次有效检索后，应把结果写入当前项目的 `.literature-review/` 工作台：
+
+1. 首次使用时检查 `.literature-review/project.md`；不存在则使用 `scripts/init-workbench.ps1`（Windows）或 `scripts/init-workbench.sh` 初始化。
+2. 将检索过程追加到 `.literature-review/search-log.md`，至少包括日期、数据库/来源、完整检索式、过滤条件和实际可见的命中数。
+3. 将候选论文写入 `.literature-review/literature-matrix.md`，`reading_status` 设为 `discovered`，`full_text_status` 设为 `missing` 或实际状态。
+4. 为每篇论文生成稳定 `paper_id`。优先 DOI；没有 DOI 时使用 firstauthor-year-shorttitle。
+5. 已存在的 paper_id 必须更新原行，而不是重复创建。
+6. 搜索结果中的元数据如果未核实，保持空白；不得根据标题猜方法、样本或结论。
+
+数据字段和状态流转见 `references/workbench-protocol.md`；矩阵模板见 `assets/literature-matrix-template.md`。
+
+## 下游交接
+
+检索结束时，向后续 Skill 输出或写入工作台：
+- 当前研究问题和检索范围
+- 数据库与检索式
+- 候选论文数量及可核实的筛选结果
+- `.literature-review/literature-matrix.md` 路径
+- 尚未获取全文的论文清单
+
+如果用户随后要求“继续精读这些文献”，优先读取工作台矩阵，而不是重新检索。
+
 ## 工作流
 
 ### Step 1｜判断检索类型（决定严格度）
