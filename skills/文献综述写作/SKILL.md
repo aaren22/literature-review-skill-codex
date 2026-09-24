@@ -27,8 +27,8 @@ description: Synthesize academic literature into a critical literature review, i
 
 | 场景 | 类型 | 长度 | 质量基线 |
 |------|-----|------|---------|
-| 博士学位论文综述章 | Narrative | 40-80 页 | Boote & Beile 12 条 ≥ 18/24 |
-| 硕士学位论文综述章 | Narrative | 15-30 页 | Boote & Beile ≥ 15/24 |
+| 博士学位论文综述章 | Narrative | 40-80 页 | Boote & Beile 12 条自评 |
+| 硕士学位论文综述章 | Narrative | 15-30 页 | Boote & Beile 自评 |
 | 期刊独立综述文章 | Integrative | 15-30 页 | Torraco 6 维度 |
 | 系统综述论文 | Systematic | PRISMA 规格 | PRISMA 2020 27/27 |
 | 范围综述 | Scoping | PRISMA-ScR | Arksey 5 步 |
@@ -42,6 +42,25 @@ description: Synthesize academic literature into a critical literature review, i
 - 每个重要综合结论应能回溯到一个或多个具体来源；避免把单篇论文的结论泛化成领域共识。
 - AI 可以提出主题聚类、综合和 gap 候选，但这些属于分析草稿；研究者需要确认其领域合理性和研究意义。
 - 优先保留“证据 → 比较 → 解释 → 局限 → gap”的论证链。
+
+## 工作台输入与输出
+
+本 Skill 默认从 `.literature-review/literature-matrix.md` 开始，而不是要求用户重新粘贴几十篇论文的摘要。
+
+### 输入检查
+
+1. 读取 `.literature-review/project.md`，确认 RQ、综述类型和范围。
+2. 读取 `.literature-review/literature-matrix.md`，统计论文状态、主题字段完整度和全文覆盖情况。
+3. 对 `reading_status` 仍为 `discovered` 的论文，不应把其未知方法、结果和局限写成事实；必要时先调用 `literature-acquisition` / `literature-reading`。
+4. 根据 matrix 的 `method`、`context_sample`、`key_findings`、`limitations` 和 `gap` 建立 synthesis matrix。
+
+### 输出
+
+将跨论文的主题聚类、比较、冲突和 gap 保存在工作区的综述草稿或用户指定文档中；不要把长段落写入 Literature Matrix。
+
+完成综合后，可将矩阵中的 `reading_status` 更新为 `synthesized`，但只有真正用于当前综述的论文才这样标记。
+
+数据契约见 `references/workbench-protocol.md`。
 
 ## 工作流（默认：学位论文 Narrative）
 
